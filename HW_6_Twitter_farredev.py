@@ -158,18 +158,18 @@ def make_request_with_cache(baseurl, hashtag, count):
         JSON
     '''
     #TODO Implement function
-    #CACHE_DICT = open_cache()
+    CACHE_DICTION = open_cache()
     params = {'q': hashtag, 'count': count}
     request = construct_unique_key(baseurl, params)
 
-    if request in CACHE_DICT.keys():
+    if request in CACHE_DICTION.keys():
         print('fetching cached data')
-        return CACHE_DICT[request]
+        return CACHE_DICTION[request]
     else:
         print("making new request")
-        CACHE_DICT[request]  = make_request(baseurl, params)
-        save_cache(CACHE_DICT)
-        return CACHE_DICT[request]
+        CACHE_DICTION[request]  = make_request(baseurl, params)
+        save_cache(CACHE_DICTION)
+        return CACHE_DICTION[request]
 
 
 def find_most_common_cooccurring_hashtag(tweet_data, hashtag_to_ignore):
