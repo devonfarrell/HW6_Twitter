@@ -163,10 +163,10 @@ def make_request_with_cache(baseurl, hashtag, count):
     request = construct_unique_key(baseurl, params)
 
     if request in CACHE_DICT.keys():
-        print('Fetching cached data')
+        print('fetching cached data')
         return CACHE_DICT[request]
     else:
-        print("Making new Request")
+        print("making new request")
         CACHE_DICT[request]  = make_request(baseurl, params)
         save_cache(CACHE_DICT)
         return CACHE_DICT[request]
